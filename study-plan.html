@@ -4,7 +4,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181d;--card:#1c2229;--tx:#e6eaef;--mu:#9aa6b4;--ln:#2d3640;--p:#6fa8e8;--c:#e59a7a;--b:#6fcf98}}
 :root[data-theme="dark"]{--bg:#14181d;--card:#1c2229;--tx:#e6eaef;--mu:#9aa6b4;--ln:#2d3640;--p:#6fa8e8;--c:#e59a7a;--b:#6fcf98}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:"Noto Naskh Arabic","Segoe UI",Tahoma,sans-serif;line-height:1.7;font-size:16px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Cairo","Noto Naskh Arabic","Segoe UI",Tahoma,sans-serif;line-height:1.7;font-size:16px}
 main{max-width:760px;margin:0 auto;padding:16px}
 h1{font-size:1.4rem;margin:8px 0}p.s{color:var(--mu);margin:4px 0 14px}
 .sum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
@@ -16,13 +16,30 @@ label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;font-size:.92rem
 input{margin-top:7px;flex:none}.k{font-weight:700;flex:none;min-width:3.2rem}
 .P .k{color:var(--p)}.C .k{color:var(--c)}.B .k{color:var(--b)}.pg{color:var(--mu);white-space:nowrap}
 .rest{color:var(--mu);font-size:.9rem}
-.cd{background:var(--card);border:1px solid var(--ln);border-radius:8px;padding:12px;margin:0 0 14px;text-align:center}.tm{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px;direction:rtl}.tm div{border-radius:10px;padding:10px 2px;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)}.tm div:nth-child(1){background:linear-gradient(135deg,#1f6fd1,#4a9bf0)}.tm div:nth-child(2){background:linear-gradient(135deg,#7b3fe4,#a674f5)}.tm div:nth-child(3){background:linear-gradient(135deg,#d6336c,#f06595)}.tm div:nth-child(4){background:linear-gradient(135deg,#e8590c,#ffa94d)}.tm b{font-size:1.6rem;display:block;line-height:1.3;font-variant-numeric:tabular-nums}.tm small{color:#fff;opacity:.9;font-size:.8rem}.gap{height:10rem}.cd span{color:var(--mu);font-size:.9rem}
-</style></head><body><main>
+.cd{background:var(--card);border:1px solid var(--ln);border-radius:8px;padding:12px;margin:0 0 14px;text-align:center}.tm{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px;direction:rtl}.tm div{border-radius:10px;padding:10px 2px;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25)}.tm div:nth-child(1){background:linear-gradient(135deg,#1f6fd1,#4a9bf0)}.tm div:nth-child(2){background:linear-gradient(135deg,#7b3fe4,#a674f5)}.tm div:nth-child(3){background:linear-gradient(135deg,#d6336c,#f06595)}.tm div:nth-child(4){background:linear-gradient(135deg,#e8590c,#ffa94d)}.tm b{font-size:1.6rem;display:block;line-height:1.3;font-variant-numeric:tabular-nums}.tm small{color:#fff;opacity:.9;font-size:.8rem}.gap{min-height:10rem}.qt{margin-top:14px;padding:14px 16px;border-radius:12px;color:#fff;text-align:center;font-size:1rem;line-height:1.9;background:linear-gradient(135deg,#0f8b8d,#3bb78f);box-shadow:0 2px 6px rgba(0,0,0,.25)}.qt small{display:block;opacity:.85;font-size:.8rem;margin-bottom:4px}.cd span{color:var(--mu);font-size:.9rem}
+.pg-card{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px;margin:0 0 14px}
+.pg-card h2{font-size:1rem;margin:0 0 8px}
+.bar{height:10px;border-radius:6px;background:var(--ln);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:6px;transition:width .3s}
+.pr{display:flex;justify-content:space-between;font-size:.85rem;margin:8px 0 4px}
+.pr span:last-child{color:var(--mu)}
+#bAll{background:linear-gradient(90deg,#1f6fd1,#7b3fe4)}#bP{background:var(--p)}#bC{background:var(--c)}#bB{background:var(--b)}
+.day.today{background:rgba(59,183,143,.14);border-right:4px solid #3bb78f}
+.day.today h3::after{content:" • اليوم";color:#3bb78f;font-weight:700}
+.goto{display:block;width:100%;margin-top:10px;padding:8px;border:1px solid var(--ln);border-radius:8px;background:transparent;color:var(--tx);font:inherit;cursor:pointer}
+details.cur{border:2px solid #3bb78f}details.cur>summary{background:linear-gradient(135deg,#0f8b8d,#3bb78f);color:#fff;border-radius:6px 6px 0 0}details.cur>summary span{color:#fff;opacity:.9}
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"></head><body><main>
 <h1>خطة إنهاء الفيزياء والكيمياء والأحياء</h1>
 <p class="s">من 4 تشرين الأول 2026 إلى 31 كانون الثاني 2027 — الصفحات حسب الأرقام المطبوعة في الكتب</p>
 <div class="cd"><span>المتبقي على الامتحان الوزاري (٦ حزيران ٢٠٢٧)</span>
 <div class="tm" id="cdBox"><div><b id="cdD">0</b><small>يوم</small></div><div><b id="cdH">0</b><small>ساعة</small></div><div><b id="cdM">0</b><small>دقيقة</small></div><div><b id="cdS">0</b><small>ثانية</small></div></div></div>
-<div class="gap"></div>
+<div class="gap"><div class="qt"><small>💡 عبارة اليوم</small><span id="qtText"></span></div></div>
+<div class="pg-card"><h2>تقدّمك</h2>
+<div class="pr"><span>الإنجاز الكلي</span><span id="tAll">0%</span></div><div class="bar"><i id="bAll"></i></div>
+<div class="pr"><span>فيزياء</span><span id="tP">0%</span></div><div class="bar"><i id="bP"></i></div>
+<div class="pr"><span>كيمياء</span><span id="tC">0%</span></div><div class="bar"><i id="bC"></i></div>
+<div class="pr"><span>أحياء</span><span id="tB">0%</span></div><div class="bar"><i id="bB"></i></div>
+<button class="goto" id="goto" type="button">↓ حصص اليوم</button></div>
 <details open><summary>الأسبوع 1 <span>4 تشرين الأول – 10 تشرين الأول</span></summary>
 <div class="day"><h3>الأحد <small>4 تشرين الأول</small></h3>
 <label class="P"><input type="checkbox" data-k="w1d0c0"><span class="k">فيزياء</span><span>الحركة التوافقية البسيطة (1/3) <span class="pg">ص6–10</span></span></label>
@@ -452,4 +469,31 @@ i.addEventListener('change',function(){try{localStorage.setItem('bac_'+i.dataset
 function tick(){var r=Math.max(0,Math.floor((t-Date.now())/1000)),v=[Math.floor(r/86400),Math.floor(r%86400/3600),Math.floor(r%3600/60),r%60];
 for(var i=0;i<4;i++)ids[i].textContent=v[i]}
 tick();setInterval(tick,1000)})();
-</script></body></html>
+</script><script>
+(function(){var Q=["ابدأ الآن، فالخطوة الصغيرة اليوم أفضل من الخطة المثالية غداً.", "كل صفحة تنهيها اليوم تخفف عنك ضغط الأيام القادمة.", "الالتزام اليومي يصنع ما لا تصنعه الحماسة المؤقتة.", "لا تنتظر الشعور بالرغبة، ابدأ وستأتي الرغبة بعد دقائق.", "تعبك اليوم سيصبح راحتك يوم النتيجة.", "أنت لا تحتاج أن تكون الأفضل، تحتاج أن تكون أفضل من أمس.", "اجعل هدفك أمام عينيك، وسيصغر كل عائق في طريقه.", "التركيز ساعة واحدة صافية أنفع من ثلاث ساعات مشتتة.", "إذا تعبت فاسترح قليلاً، لكن لا تستسلم.", "النجاح مجموع جهود صغيرة تتكرر يوماً بعد يوم.", "ما تنجزه اليوم لن يطلب منك أحد إعادته غداً.", "ثق بنفسك، فقد وصلت إلى هنا بجهدك.", "الصبر على التعب مؤقت، وفرحة الإنجاز تبقى طويلاً.", "ابدأ بأصعب درس وأنت نشيط، ثم يصير الباقي أسهل.", "خطتك واضحة أمامك، ما عليك إلا أن تنفّذها اليوم.", "لا تقارن تقدمك بغيرك، قارنه بما كنت عليه أمس.", "الانضباط هو أن تفعل ما يجب حتى حين لا تشعر بالرغبة.", "استعن بالله ولا تعجز، وابدأ درسك الآن.", "كل مسألة تحلها تبني ثقتك قبل أن تبني علامتك.", "الراحة بعد الإنجاز أجمل من الراحة قبله.", "اليوم فرصة جديدة، فاستثمرها كما تستحق أحلامك.", "الأيام تمر سواء درستَ أم لا، فاجعلها تمر وأنت تتقدم.", "إتقان القليل كل يوم يتفوق على حفظ الكثير في ليلة واحدة.", "اشرب ماءً، خذ نفساً عميقاً، وابدأ بتركيز.", "الطريق طويل، لكنك تقطعه خطوة بخطوة، وهذه خطوة اليوم.", "ما دمت مستمراً فأنت تقترب، حتى لو شعرت بالبطء.", "اجعل نيتك الإتقان لا مجرد إنهاء الصفحات.", "من صبر على المذاكرة اليوم فرح بنتيجته غداً.", "لا تؤجل درس اليوم، فغداً له دروسه.", "أنت قادر، وكل ما تحتاجه أن تبدأ.", "اليوم هو الوحيد الذي تملكه فعلاً، فاجعله يستحق.", "الدرس الذي تؤجله اليوم سيزاحمك غداً بدروس أخرى.", "لا يحتاج النجاح إلى معجزة، يحتاج إلى يوم منظم يتكرر.", "عندما تشعر بالملل تذكّر لماذا بدأت.", "نظّم مكانك، رتّب أوراقك، وابدأ بأول سطر.", "حل مسألة واحدة بتركيز خير من قراءة عشر صفحات بشرود.", "اجعل هاتفك بعيداً ساعة واحدة، وانظر كم ستنجز.", "ما تحفظه اليوم بفهم يبقى معك أطول مما تحفظه بالتكرار.", "لا تخف من الخطأ، فهو أسرع معلم لمن يراجعه.", "كل يوم تلتزم فيه تقرّبك من حلمك يوماً كاملاً.", "ابدأ بما تخشاه أكثر، فالباقي سيبدو أخف.", "الذي يذاكر بانتظام لا يحتاج أن يسهر ليلة الامتحان.", "اكتب ملخصاً بيدك، فاليد تساعد الذاكرة أكثر مما تتوقع.", "اسأل نفسك بعد كل درس: ماذا فهمت منه فعلاً؟", "قسّم الدرس الكبير إلى أجزاء صغيرة، ولن يبقى كبيراً.", "أنت أقوى مما تظن، وأقدر مما قيل لك.", "احتفل بإنجازاتك الصغيرة، فهي وقود الطريق.", "الثقة تُبنى بالإنجاز لا بالانتظار.", "خذ استراحة قصيرة كل ساعة، فالعقل يحب أن يلتقط أنفاسه.", "نم جيداً الليلة، فالنوم جزء من المذاكرة.", "الجسم المرتاح عقلٌ أصفى، فاعتنِ بنفسك.", "عبارة «سأبدأ لاحقاً» أكبر لصوص الوقت.", "هدفك أكبر من كسل هذه الساعة.", "من لا يملّ من المحاولة يصل ولو تأخر.", "ركّز على ما بين يديك الآن لا على ما فاتك.", "كل معلومة تتعلمها اليوم هي رصيد لك في قاعة الامتحان.", "اجتهد اليوم كأن الامتحان غداً، وارتح كأنه بعيد.", "الإنجاز الحقيقي يُصنع في أيام عادية لا في ليلة استثنائية.", "اجعل مذاكرتك عادة يومية كغسل الوجه، لا عبئاً ثقيلاً.", "لا تنتظر الدافع المثالي، فالدافع يأتي بعد البدء.", "تذكّر أن كل متفوق كان يوماً في مثل مكانك.", "صبرك على الدروس الصعبة هو الفرق بينك وبين التراجع.", "ثق أن مجهودك محفوظ ولن يضيع.", "الهدوء في المراجعة أنفع من الاستعجال والقلق.", "افهم القانون قبل أن تحفظه، فالفهم يختصر عليك الطريق.", "ارسم المخطط بنفسك، فهو يثبّت المعلومة أكثر من القراءة.", "كرّر المراجعة بعد يوم ثم بعد أسبوع، وستبقى المعلومة.", "اجعل لكل ساعة هدفاً واضحاً، لا مجرد وقت يمر.", "أنت تبني مستقبلك لبنة لبنة، وهذه لبنة اليوم.", "لا تدع يوماً سيئاً يقنعك بأنك لا تستطيع.", "تعثّرت أمس؟ لا بأس، اليوم صفحة جديدة.", "استمر، فالمسافة تقصر كلما اقتربت.", "الإصرار الهادئ يغلب الحماسة السريعة.", "أنهِ مهام اليوم، ثم استمتع بوقتك دون ذنب.", "اطلب العلم بنية صادقة، وسيفتح لك الله أبواباً لم تتوقعها.", "اللهم يسّر لي أمري، ثم ابدأ بتوكل وعمل.", "ادعُ بالتوفيق ثم ابذل جهدك، فالدعاء والعمل يسيران معاً.", "الأهل ينتظرون فرحتك، فاجعلها قريبة بجهدك.", "حلمك يستحق أن تتعب لأجله قليلاً.", "قدّر وقتك، فهو أغلى ما تملك في هذه المرحلة.", "افتح كتابك الآن، وعدّ إلى ثلاث، وابدأ.", "أحياناً أصعب جزء في الدرس هو فتح الكتاب فقط.", "كلما شعرت بالتعب تذكّر أن هذه مرحلة وستنتهي.", "ما أجمل أن تنام وأنت راضٍ عن يومك!", "لا تقل «لا أفهم»، قل «لم أفهم بعد».", "المعلومة الصعبة اليوم ستصبح سهلة بعد المراجعة الثالثة.", "اجعل أخطاءك دفتراً تعود إليه، فهي أثمن من الإجابات الصحيحة.", "اجلس مستقيماً، وخذ نفساً، وابدأ بهدوء.", "قاوم التشتت خمس دقائق فقط، وبعدها يسهل الاستمرار.", "سجّل ما أنجزته اليوم، وسترى كم قطعت.", "من خطّط ونفّذ نجا من الفوضى.", "الوقت الذي تقضيه في القلق تستطيع أن تستثمره في حل مسألة.", "أنت قريب من خط النهاية أكثر مما تتخيل.", "لا أحد يذاكر عنك، لكن الجميع سيفرح بك.", "افتخر بنفسك لأنك ما زلت تحاول.", "غداً سيسألك المستقبل: ماذا فعلت اليوم؟ فأجبه بعمل.", "تعلّم أن تحب التحدي، فهو يصنع منك أقوى نسخة.", "الفيزياء أسهل حين ترسم المسألة قبل أن تحلها.", "في الكيمياء، المعادلة الموزونة نصف الحل.", "في الأحياء، الربط بين الأفكار أنفع من حفظها منفردة.", "كل قانون تفهمه اليوم يوفّر عليك ساعات في المراجعة.", "اربط المعلومة بصورة أو قصة، وستبقى في ذاكرتك.", "اشرح الدرس لنفسك بصوت مسموع، فهي أسرع طريقة للتأكد من فهمك.", "لا تُهمل الأسئلة السابقة، فهي خريطة الامتحان.", "اجعل مراجعة الأمس مقدمة درس اليوم.", "وقتك محدود ولكنه كافٍ لمن ينظّمه.", "اقتنع أن التعب مؤقت، وأن العلامة تبقى.", "ما دامت الخطة أمامك فالأمر أبسط مما يبدو.", "اتّكل على الله، وأكمل ما بدأته.", "قليل دائم خير من كثير منقطع.", "كن لطيفاً مع نفسك إن أخطأت، وصارماً معها في الاستمرار.", "نتيجتك القادمة تُكتب في ساعات اليوم هذه.", "خطوتك اليوم قد تبدو صغيرة، لكنها في الاتجاه الصحيح.", "لا تخلط بين الانشغال والإنجاز، اختر المهم أولاً.", "اجعل مكتبك مرتباً، فالعقل يحب المكان الهادئ.", "حين تتعثر في مسألة، انتقل لغيرها وعد إليها بعقل جديد.", "اختم يومك بمراجعة سريعة لما درسته، وسيثبت أكثر.", "تعب القلب يزول بعد أول إنجاز صغير.", "آمن بأن لجهدك ثمراً، ولو تأخر موعده.", "كل صباح هو بداية جديدة لمن أراد.", "أنت لا تدرس لتنجح فقط، بل لتفتح لنفسك أبواباً أوسع.", "اذكر دائماً أن لك حلماً ينتظرك عند خط النهاية.", "اجعل المنافسة مع نفسك، فهي المنافسة الوحيدة العادلة.", "كلما أنجزت أكثر زاد يقينك بقدرتك.", "يوم من الالتزام يُسهّل الذي بعده.", "استمرّ حتى حين تبدو النتائج بعيدة، فهي تتجمع في الخفاء.", "تذكّر أنك تفعل هذا لأجلك أنت قبل أي أحد.", "افعل ما عليك اليوم، وسلّم أمرك لله.", "حماسك الآن مؤقت، فاحمِه بنظام ثابت.", "مهما كان الدرس ثقيلاً، فقد حللت أصعب منه من قبل.", "أنت على الطريق، فلا تلتفت للوراء.", "بالتوفيق، فالمستقبل يُصنع بيد من يعمل اليوم."];
+var n=new Date(),d=Math.round((Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())-Date.UTC(2026,9,4))/86400000),i=((d%Q.length)+Q.length)%Q.length;
+document.getElementById("qtText").textContent=Q[i]})();
+</script>
+<script>
+(function(){
+var det=document.querySelectorAll('details');
+var n=new Date(),d=Math.round((Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())-Date.UTC(2026,9,4))/86400000);
+var w=Math.floor(d/7),o=((d%7)+7)%7,today=null;
+if(d<0)w=0;
+if(w>=det.length)w=det.length-1;
+for(var i=0;i<det.length;i++){det[i].removeAttribute('open');if(i===w&&d>=0)det[i].classList.add('cur')}
+if(d>=0&&d<7*det.length){var blocks=det[w].querySelectorAll('.day'),idx=o<5?o:(o===6?5:6);today=blocks[idx];if(today)today.classList.add('today')}
+var g=document.getElementById('goto');
+if(today){g.onclick=function(){det[w].setAttribute('open','');today.scrollIntoView({behavior:'smooth',block:'center'})}}else{g.style.display='none'}
+function pct(a,b){return b?Math.round(a*100/b):0}
+function upd(){
+var all=document.querySelectorAll('input[data-k]'),ca=0;
+for(var i=0;i<all.length;i++)if(all[i].checked)ca++;
+set('All',ca,all.length);
+['P','C','B'].forEach(function(k){var l=document.querySelectorAll('label.'+k+' input'),c=0;for(var i=0;i<l.length;i++)if(l[i].checked)c++;set(k,c,l.length)})}
+function set(k,c,t){var p=pct(c,t);document.getElementById('b'+k).style.width=p+'%';document.getElementById('t'+k).textContent=p+'% ('+c+'/'+t+')'}
+document.addEventListener('change',function(e){if(e.target&&e.target.matches&&e.target.matches('input[data-k]'))upd()});
+upd();
+})();
+</script>
+</body></html>
