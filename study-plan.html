@@ -26,7 +26,7 @@ details.cur{border:2px solid #3bb78f}details.cur>summary{background:linear-gradi
 .goto{width:100%;margin-bottom:6px}.btn{width:100%;background:linear-gradient(135deg,#0f8b8d,#3bb78f);color:#fff;border:0;font-size:1.1rem;padding:12px}.btn.stop{background:linear-gradient(135deg,#d6336c,#e8590c)}
 .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.chip{font:inherit;padding:10px;border-radius:8px;border:2px solid var(--ln);background:var(--card);color:var(--tx);cursor:pointer}.chip small{display:block;font-size:.8rem;opacity:.85;direction:ltr;font-variant-numeric:tabular-nums}.chip.on{border-color:var(--ac);background:var(--ac);color:#fff}
 .big{font-size:2.8rem;text-align:center;font-weight:700;margin:14px 0;font-variant-numeric:tabular-nums;direction:ltr}
-input[type=number],textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:8px;width:100%;margin:6px 0}
+input[type=number],textarea,select{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:8px;width:100%;margin:6px 0}
 .bar{height:10px;border-radius:6px;background:var(--ln);overflow:hidden}.bar i{display:block;height:100%;border-radius:6px}
 .sj{border-right:5px solid}.sj h3{font-size:1.1rem}.sj.P{border-right-color:var(--p);background:rgba(31,111,209,.08)}.sj.C{border-right-color:var(--c);background:rgba(232,89,12,.08)}.sj.B{border-right-color:var(--b);background:rgba(44,160,90,.09)}.sj.P h3,.s.P{color:var(--p)}.sj.C h3,.s.C{color:var(--c)}.sj.B h3,.s.B{color:var(--b)}.nl{margin-top:8px}.n1{padding:6px 0;border-top:1px solid var(--ln);font-size:.9rem}
 .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.wd{font-size:.72rem;color:var(--mu);font-style:normal}
@@ -40,7 +40,7 @@ input[type=number],textarea{font:inherit;color:var(--tx);background:var(--bg);bo
 <section id="tab1" class="tab"><h2>الخطة</h2><button class="goto" id="goto">↓ حصص اليوم</button><div id="weeks"></div></section>
 <section id="tab2" class="tab"><h2>مؤقّت الدراسة</h2><div class="card" style="text-align:center"><div class="s" style="margin:0">إجمالي وقت الدراسة (كل المواد)</div><div class="big" id="tot" style="font-size:2.2rem;margin:2px 0">00:00:00</div></div><div class="chips" id="chips"></div><div class="s" style="text-align:center;margin:0">الجلسة الحالية</div><div class="big" id="big">00:00:00</div><button id="go" class="btn">ابدأ</button>
 <div id="fix" class="box" hidden style="margin-top:12px">مضى على المؤقّت أكثر من 3 ساعات. كم دقيقة درست فعلاً؟<input id="fixm" type="number" min="0" value="60"><button id="fixb">تسجيل</button></div>
-<div class="box" style="margin-top:14px"><b>إضافة وقت يدوياً</b><div class="s">للمادة المختارة وباليوم الحالي</div><input id="man" type="number" min="1" placeholder="عدد الدقائق"><button id="manb">إضافة</button></div><p id="todayT" class="s"></p></section>
+<p id="todayT" class="s"></p></section>
 <section id="tab3" class="tab"><h2>إحصائياتي</h2><div id="stSub"></div><h3>تقويم الدراسة</h3><div class="card"><div id="cal"></div></div><div id="dayInfo" class="card" hidden></div></section>
 </main>
 <nav id="nav"><button data-t="0" class="on"><span>🏠</span>الرئيسية</button><button data-t="1"><span>📚</span>الخطة</button><button data-t="2"><span>⏱️</span>المؤقّت</button><button data-t="3"><span>📊</span>إحصائياتي</button></nav>
@@ -90,7 +90,6 @@ $('chips').innerHTML=['B','P','C'].map(function(k){return '<button class="chip" 
 $('chips').onclick=function(e){var c=e.target.closest('.chip'),k=c&&c.dataset.k;if(k&&!run){sel=k;tui()}};
 $('go').onclick=function(){if(!run){run={k:sel,t:Date.now()};sset('run',JSON.stringify(run));tui()}else{var s=Math.floor((Date.now()-run.t)/1000);if(s>10800){$('fixm').value=60;$('fix').hidden=false}else fin(s)}};
 $('fixb').onclick=function(){fin(Math.max(0,Math.round(+$('fixm').value*60)))};
-$('manb').onclick=function(){var m=Math.round(+$('man').value);if(m>0){add(run?run.k:sel,m*60,ymd(new Date()));$('man').value='';tt()}};
 function cnt(){var r={P:[0,0],C:[0,0],B:[0,0],A:[0,0]};D.w.concat(D.r).forEach(function(w){w.days.forEach(function(d,di){if(d.t){r.A[1]++;if(ck['r'+w.n+'d'+di])r.A[0]++}else d.c.forEach(function(c,ci){r.A[1]++;r[c.k][1]++;if(ck['w'+w.n+'d'+di+'c'+ci]){r.A[0]++;r[c.k][0]++}})})});return r}
 function bar(p,c){return '<div class="bar"><i style="width:'+p+'%;background:'+c+'"></i></div>'}
 function stats(){var r=cnt(),p=function(a){return a[1]?Math.round(a[0]*100/a[1]):0},h='<div class="card"><h3>الإنجاز الكلي: '+p(r.A)+'%</h3>'+bar(p(r.A),'linear-gradient(90deg,#1f6fd1,#7b3fe4)')+'<p class="s">'+r.A[0]+' من '+r.A[1]+' حصة — إجمالي ساعات الدراسة: <b>'+hm(tot())+'</b></p></div>';
@@ -103,7 +102,12 @@ for(var i=0;i<f;i++)h+='<i></i>';
 for(var d=1;d<=n;d++){var k=y+'-'+p2(m+1)+'-'+p2(d);h+='<button class="cd1'+(dsum(k)?' on':'')+(k===sd?' sel':'')+'" data-d="'+k+'">'+d+'</button>'}
 $('cal').innerHTML=h+'</div>';
 $('cp').onclick=function(){if(cm[0]>2026*12+9){cm[0]--;cal()}};$('cn').onclick=function(){if(cm[0]<2027*12+5){cm[0]++;cal()}};
-$('cal').querySelectorAll('.cd1').forEach(function(b){b.onclick=function(){sd=b.dataset.d;cal();var x=(mo[sd.slice(0,7)]||{})[sd]||{},t=0;for(var q in x)t+=x[q];$('dayInfo').hidden=false;$('dayInfo').innerHTML='<h3>'+ds(sd)+'</h3><p>إجمالي الدراسة: <b>'+hm(t)+'</b></p>'+['B','P','C'].map(function(k){return '<div class="s '+k+'" style="font-weight:700">'+SN[k]+': '+hm(x[k]||0)+'</div>'}).join('')}})}
+$('cal').querySelectorAll('.cd1').forEach(function(b){b.onclick=function(){sd=b.dataset.d;cal()}});dayPanel()}
+var msb='B';
+function dayPanel(){if(!sd)sd=ymd(new Date());var x=(mo[sd.slice(0,7)]||{})[sd]||{},t=0;for(var q in x)t+=x[q];$('dayInfo').hidden=false;
+$('dayInfo').innerHTML='<h3>'+ds(sd)+'</h3><p>إجمالي الدراسة: <b>'+hm(t)+'</b></p>'+['B','P','C'].map(function(k){return '<div class="s '+k+'" style="font-weight:700">'+SN[k]+': '+hm(x[k]||0)+'</div>'}).join('')+'<div style="margin-top:10px;border-top:1px solid var(--ln);padding-top:8px"><b>إضافة وقت لهذا اليوم</b><select id="msub">'+['B','P','C'].map(function(k){return '<option value="'+k+'"'+(k===msb?' selected':'')+'>'+SN[k]+'</option>'}).join('')+'</select><input id="mmin" type="number" min="1" placeholder="عدد الدقائق"><button id="mbtn">إضافة</button><p id="mmsg" class="s"></p></div>';
+$('msub').onchange=function(){msb=this.value};
+$('mbtn').onclick=function(){var m=Math.round(+$('mmin').value);if(!(m>0))return;if(sd>ymd(new Date())){$('mmsg').textContent='لا يمكن الإضافة ليوم قادم';return}add($('msub').value,m*60,sd);stats()}}
 var t0=new Date(2027,5,6).getTime(),ids=['cdD','cdH','cdM','cdS'].map($);
 function cd(){var r=Math.max(0,Math.floor((t0-Date.now())/1000)),v=[Math.floor(r/86400),Math.floor(r%86400/3600),Math.floor(r%3600/60),r%60];for(var i=0;i<4;i++)ids[i].textContent=v[i];if(run&&tab===2)tt()}
 cd();setInterval(cd,1000);
