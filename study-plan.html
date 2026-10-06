@@ -28,7 +28,7 @@ details.cur{border:2px solid #3bb78f}details.cur>summary{background:linear-gradi
 .big{font-size:2.8rem;text-align:center;font-weight:700;margin:14px 0;font-variant-numeric:tabular-nums;direction:ltr}
 input[type=number],textarea,select{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--ln);border-radius:8px;padding:8px;width:100%;margin:6px 0}
 .bar{height:10px;border-radius:6px;background:var(--ln);overflow:hidden}.bar i{display:block;height:100%;border-radius:6px}
-.sj{border-right:5px solid}.sj h3{font-size:1.1rem}.sj.P{border-right-color:var(--p);background:rgba(31,111,209,.08)}.sj.C{border-right-color:var(--c);background:rgba(232,89,12,.08)}.sj.B{border-right-color:var(--b);background:rgba(44,160,90,.09)}.sj.P h3,.s.P{color:var(--p)}.sj.C h3,.s.C{color:var(--c)}.sj.B h3,.s.B{color:var(--b)}.nl{margin-top:8px}.n1{padding:6px 0;border-top:1px solid var(--ln);font-size:.9rem}
+.sj{border-right:5px solid}.sj h3{font-size:1.1rem}.sj.P{border-right-color:var(--p);background:rgba(31,111,209,.08)}.sj.C{border-right-color:var(--c);background:rgba(232,89,12,.08)}.sj.B{border-right-color:var(--b);background:rgba(44,160,90,.09)}.sj.P h3,.s.P{color:var(--p)}.sj.C h3,.s.C{color:var(--c)}.sj.B h3,.s.B{color:var(--b)}#mbtn,#mdel{font:inherit;font-weight:700;border:0;border-radius:8px;padding:10px;color:#fff;cursor:pointer}#mbtn{background:linear-gradient(135deg,#0f8b8d,#3bb78f)}#mdel{background:linear-gradient(135deg,#d6336c,#e8590c)}#msub,#mmin{margin:8px 0}.nl{margin-top:8px}.n1{padding:6px 0;border-top:1px solid var(--ln);font-size:.9rem}
 .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.wd{font-size:.72rem;color:var(--mu);font-style:normal}
 .cd1{font:inherit;padding:8px 0;border-radius:8px;border:1px solid var(--ln);background:var(--card);color:var(--tx);cursor:pointer}.cd1.on{background:#3bb78f;color:#fff;border-color:#3bb78f}.cd1.sel{outline:2px solid var(--ac)}
 #sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9;display:flex;align-items:flex-end}#sheet[hidden]{display:none}#sheet>div{background:var(--card);width:100%;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));border-radius:14px 14px 0 0}#sheet textarea{min-height:140px}
@@ -38,9 +38,9 @@ input[type=number],textarea,select{font:inherit;color:var(--tx);background:var(-
 <div class="cd"><span>المتبقي على الامتحان الوزاري (٦ حزيران ٢٠٢٧)</span><div class="tm"><div><b id="cdD">0</b><small>يوم</small></div><div><b id="cdH">0</b><small>ساعة</small></div><div><b id="cdM">0</b><small>دقيقة</small></div><div><b id="cdS">0</b><small>ثانية</small></div></div></div>
 <div class="qt"><small>💡 عبارة اليوم</small><span id="qtText"></span></div></section>
 <section id="tab1" class="tab"><h2>الخطة</h2><button class="goto" id="goto">↓ حصص اليوم</button><div id="weeks"></div></section>
-<section id="tab2" class="tab"><h2>مؤقّت الدراسة</h2><div class="card" style="text-align:center"><div class="s" style="margin:0">إجمالي وقت الدراسة (كل المواد)</div><div class="big" id="tot" style="font-size:2.2rem;margin:2px 0">00:00:00</div></div><div class="chips" id="chips"></div><div class="s" style="text-align:center;margin:0">الجلسة الحالية</div><div class="big" id="big">00:00:00</div><button id="go" class="btn">ابدأ</button>
+<section id="tab2" class="tab"><h2>مؤقّت الدراسة</h2><div class="card" style="text-align:center"><div class="s" style="margin:0">دراسة اليوم (كل المواد)</div><div class="big" id="tot" style="font-size:2.2rem;margin:2px 0">00:00:00</div></div><div class="chips" id="chips"></div><div class="s" style="text-align:center;margin:0">الجلسة الحالية</div><div class="big" id="big">00:00:00</div><button id="go" class="btn">ابدأ</button>
 <div id="fix" class="box" hidden style="margin-top:12px">مضى على المؤقّت أكثر من 3 ساعات. كم دقيقة درست فعلاً؟<input id="fixm" type="number" min="0" value="60"><button id="fixb">تسجيل</button></div>
-<p id="todayT" class="s"></p></section>
+</section>
 <section id="tab3" class="tab"><h2>إحصائياتي</h2><div id="stSub"></div><h3>تقويم الدراسة</h3><div class="card"><div id="cal"></div></div><div id="dayInfo" class="card" hidden></div></section>
 </main>
 <nav id="nav"><button data-t="0" class="on"><span>🏠</span>الرئيسية</button><button data-t="1"><span>📚</span>الخطة</button><button data-t="2"><span>⏱️</span>المؤقّت</button><button data-t="3"><span>📊</span>إحصائياتي</button></nav>
@@ -82,9 +82,10 @@ function show(n){tab=n;for(var i=0;i<4;i++){$('tab'+i).classList.toggle('on',i==
 nav.forEach(function(b){b.onclick=function(){show(+b.dataset.t)}});
 function dsum(k){var m=mo[k.slice(0,7)],x=m&&m[k],s=0;if(x)for(var q in x)s+=x[q];return s}
 function tot(k){var s=0;for(var m in mo)for(var d in mo[m]){var x=mo[m][d];if(k)s+=x[k]||0;else for(var q in x)s+=x[q]}return s}
-function add(k,s,d){var ym=d.slice(0,7);mo[ym]=mo[ym]||{};var x=mo[ym][d]=mo[ym][d]||{};x[k]=(x[k]||0)+s;sset('s_'+ym,JSON.stringify(mo[ym]))}
+function add(k,s,d){var ym=d.slice(0,7);mo[ym]=mo[ym]||{};var x=mo[ym][d]=mo[ym][d]||{};x[k]=Math.max(0,(x[k]||0)+s);sset('s_'+ym,JSON.stringify(mo[ym]))}
 function tui(){var c=$('chips').children;for(var i=0;i<c.length;i++){c[i].classList.toggle('on',c[i].dataset.k===(run?run.k:sel))}$('go').textContent=run?'إيقاف وتسجيل':'ابدأ';$('go').classList.toggle('stop',!!run);tt()}
-function tt(){var ex=run?Math.max(0,Math.floor((Date.now()-run.t)/1000)):0;$('big').textContent=hms(ex);$('tot').textContent=hms(tot()+ex);['B','P','C'].forEach(function(k){$('ct_'+k).textContent=hms(tot(k)+(run&&run.k===k?ex:0))});$('todayT').textContent='دراستك اليوم: '+hm(dsum(ymd(new Date())))}
+function dk(d,k){return((mo[d.slice(0,7)]||{})[d]||{})[k]||0}
+function tt(){var td=ymd(new Date()),ex=run?Math.max(0,Math.floor((Date.now()-run.t)/1000)):0,lv=run&&ymd(new Date(run.t))===td?ex:0;$('big').textContent=hms(ex);$('tot').textContent=hms(dsum(td)+lv);['B','P','C'].forEach(function(k){$('ct_'+k).textContent=hms(dk(td,k)+(run&&run.k===k?lv:0))})}
 function fin(s){add(run.k,s,ymd(new Date(run.t)));run=null;sset('run','');$('fix').hidden=true;tui()}
 $('chips').innerHTML=['B','P','C'].map(function(k){return '<button class="chip" data-k="'+k+'">'+SN[k]+'<small id="ct_'+k+'">00:00:00</small></button>'}).join('');
 $('chips').onclick=function(e){var c=e.target.closest('.chip'),k=c&&c.dataset.k;if(k&&!run){sel=k;tui()}};
@@ -105,9 +106,10 @@ $('cp').onclick=function(){if(cm[0]>2026*12+9){cm[0]--;cal()}};$('cn').onclick=f
 $('cal').querySelectorAll('.cd1').forEach(function(b){b.onclick=function(){sd=b.dataset.d;cal()}});dayPanel()}
 var msb='B';
 function dayPanel(){if(!sd)sd=ymd(new Date());var x=(mo[sd.slice(0,7)]||{})[sd]||{},t=0;for(var q in x)t+=x[q];$('dayInfo').hidden=false;
-$('dayInfo').innerHTML='<h3>'+ds(sd)+'</h3><p>إجمالي الدراسة: <b>'+hm(t)+'</b></p>'+['B','P','C'].map(function(k){return '<div class="s '+k+'" style="font-weight:700">'+SN[k]+': '+hm(x[k]||0)+'</div>'}).join('')+'<div style="margin-top:10px;border-top:1px solid var(--ln);padding-top:8px"><b>إضافة وقت لهذا اليوم</b><select id="msub">'+['B','P','C'].map(function(k){return '<option value="'+k+'"'+(k===msb?' selected':'')+'>'+SN[k]+'</option>'}).join('')+'</select><input id="mmin" type="number" min="1" placeholder="عدد الدقائق"><button id="mbtn">إضافة</button><p id="mmsg" class="s"></p></div>';
+$('dayInfo').innerHTML='<h3>'+ds(sd)+'</h3><p>إجمالي الدراسة: <b>'+hm(t)+'</b></p>'+['B','P','C'].map(function(k){return '<div class="s '+k+'" style="font-weight:700">'+SN[k]+': '+hm(x[k]||0)+'</div>'}).join('')+'<div style="margin-top:10px;border-top:1px solid var(--ln);padding-top:8px"><b>تعديل وقت هذا اليوم</b><select id="msub">'+['B','P','C'].map(function(k){return '<option value="'+k+'"'+(k===msb?' selected':'')+'>'+SN[k]+'</option>'}).join('')+'</select><input id="mmin" type="number" min="1" placeholder="عدد الدقائق"><div style="display:flex;gap:8px"><button id="mbtn" style="flex:1">➕ إضافة</button><button id="mdel" style="flex:1">➖ خصم</button></div><p id="mmsg" class="s"></p></div>';
 $('msub').onchange=function(){msb=this.value};
-$('mbtn').onclick=function(){var m=Math.round(+$('mmin').value);if(!(m>0))return;if(sd>ymd(new Date())){$('mmsg').textContent='لا يمكن الإضافة ليوم قادم';return}add($('msub').value,m*60,sd);stats()}}
+$('mbtn').onclick=function(){var m=Math.round(+$('mmin').value);if(!(m>0))return;if(sd>ymd(new Date())){$('mmsg').textContent='لا يمكن الإضافة ليوم قادم';return}add($('msub').value,m*60,sd);stats()};
+$('mdel').onclick=function(){var m=Math.round(+$('mmin').value);if(!(m>0))return;var k=$('msub').value,have=dk(sd,k);if(m*60>have){$('mmsg').textContent='المسجّل لهذه المادة في هذا اليوم: '+hm(have)+' فقط';return}add(k,-m*60,sd);stats()}}
 var t0=new Date(2027,5,6).getTime(),ids=['cdD','cdH','cdM','cdS'].map($);
 function cd(){var r=Math.max(0,Math.floor((t0-Date.now())/1000)),v=[Math.floor(r/86400),Math.floor(r%86400/3600),Math.floor(r%3600/60),r%60];for(var i=0;i<4;i++)ids[i].textContent=v[i];if(run&&tab===2)tt()}
 cd();setInterval(cd,1000);
